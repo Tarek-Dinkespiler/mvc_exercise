@@ -1,0 +1,18 @@
+version: '3'
+services:
+  redis:
+    image: 'redis'
+    ports:
+      - 127.0.0.1:6380:6379
+  postgres:
+    image: 'postgres:10.5-alpine'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 127.0.0.1:5434:5432
+  maildev:
+    image: 'djfarrelly/maildev'
+    ports:
+      - 127.0.0.1:1030:25
+      - 127.0.0.1:1081:80

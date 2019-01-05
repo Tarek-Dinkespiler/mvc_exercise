@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers-legacy
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: circleci_user
+          POSTGRES_USER: circleci_user
+          RAILS_ENV: test
+          POSTGRES_PASSWORD: password
+          POSTGRES_PORT: 5432
+
+      - image: circleci/postgres:10-alpine-postgis
+        environment:
+          POSTGRES_USER: circleci_user
+          POSTGRES_DB: coffee_shop_circleci_db
+          POSTGRES_PASSWORD: password
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            bundle install
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run: bundle exec rails db:create db:migrate
+
+      - run:
+          name: run linting
+          command: |
+            bundle exec rubocop
+      - run:
+          name: run tests
+          command: |
+            bundle exec rspec --format progress \
