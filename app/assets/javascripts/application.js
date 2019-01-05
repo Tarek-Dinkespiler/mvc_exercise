@@ -13,4 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require template/app
+//= require template/charts
+//= require template/forms
+//= require template/maps
+//= require template/tables
 //= require_tree .

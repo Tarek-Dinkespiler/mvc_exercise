@@ -1,0 +1,23 @@
+<nav class="sidebar sidebar-sticky">
+	<div class="sidebar-content">
+
+		<%= link_to root_path, class: "sidebar-brand" do %>
+      <p class="align-middle text-center">
+	      <%= image_tag "logo.svg", size: "75x75", class: "rounded rounded-circle", alt: "logo" %>
+			</p>
+		<% end %>
+
+		<ul class="sidebar-nav">
+
+			<li class="sidebar-item">
+		    <%= link_to administration_items_path, class: "sidebar-link" do %>
+          <span class="align-middle">
+          	Items
+          </span>
+        <% end %>
+			</li>
+
+		</ul>
+
+	</div>
+</nav>

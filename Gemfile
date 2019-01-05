@@ -9,9 +9,9 @@ end
 File.read('./.ruby-version')
 
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 4.1.3'
 gem 'coffee-rails', '~> 4.2'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'pg', '>= 0.18', '< 2.0'
