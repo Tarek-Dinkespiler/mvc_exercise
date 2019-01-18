@@ -2,7 +2,9 @@
 
 module Administration
   class ItemsController < AdministrationController
-    def index; end
+    def index
+      @items = Item.all
+    end
 
     def update
       redirect_to administration_items_path

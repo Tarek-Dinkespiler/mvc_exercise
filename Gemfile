@@ -10,6 +10,7 @@ File.read('./.ruby-version')
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'coffee-rails', '~> 4.2'
+gem 'devise', '~> 4.5.0'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'jbuilder', '~> 2.5'
@@ -18,6 +19,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 gem 'sass-rails', '~> 5.0'
+gem 'sidekiq', '~> 5.2.2'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 

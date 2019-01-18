@@ -29,3 +29,6 @@ Metrics/BlockLength:
     - 'spec/**/*.rb'
     - 'Guardfile'
     - 'vendor/bundle'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
