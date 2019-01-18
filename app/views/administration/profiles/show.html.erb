@@ -1,0 +1,8 @@
+<h1>
+	<%= @profile.id %>
+</h1>
+
+
+<%= link_to send_email_administration_profile_path(@profile), class: "btn btn-primary" do %>
+	Envoyer un email à l'utilisateur
+<% end %>

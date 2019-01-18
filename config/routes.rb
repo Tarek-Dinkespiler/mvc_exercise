@@ -11,5 +11,10 @@ Rails.application.routes.draw do
     get '/', to: 'items#index'
 
     resources :items
+    resources :profiles do
+      member do
+        get '/send_email', to: "profiles#send_email", as: :send_email
+      end
+    end
   end
 end
